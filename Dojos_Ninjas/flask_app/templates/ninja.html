@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Ninja</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+    <form action="/ninjas/new" method="post" class="bg-dark container-sm p-3 col-md-3 mt-5">
+        <h2 class="text-warning text-center">New Ninja</h2>
+        <div class="mb-3 text-light">
+            <label for="input" class="form-label">Dojo</label>
+            <select name="Dojo_id" id="input" class="form-select mb-2">
+                <option placeholder>Choose...</option>
+                {% for dojo in dojos %}
+                <option value="{{dojo.id}}">{{dojo.name}}</option>
+                {% endfor %}
+            </select>
+            <label class="form-label">First Name:</label>
+            <input class="form-control mb-2" name="first_name">
+            <label class="form-label">Last Name:</label>
+            <input class="form-control mb-2" name="last_name">
+            <label class="form-label">Age:</label>
+            <input class="form-control mb-2" name="age">
+        </div>
+        <button type="submit" class="btn btn-primary">Add Ninja</button>
+    </form>
+    <a class="btn btn-primary" href="/dojos">Home</a>
+</body>
+
+</html>
