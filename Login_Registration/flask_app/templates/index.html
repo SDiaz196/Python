@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register/Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="d-flex mb-5">
+        <form action="/register" method="post" class="bg-dark p-5 col-md-4 mt-5 container-sm">
+            <h1 class="text-warning">Register</h1>
+            {% for message in get_flashed_messages()%}
+            <p class="text-danger">{{message}}</p>
+            {% endfor %}
+            <div class="text-light">
+                <label for="form-label">First Name:</label>
+                <input type="text" class="form-control mb-3" name="first_name">
+                <label for="form-label">Last Name:</label>
+                <input type="text" class="form-control mb-3" name="last_name">
+                <label for="form-label">Email:</label>
+                <input type="email" class="form-control mb-3" name="email">
+                <label for="form-label">Password:</label>
+                <input type="password" class="form-control mb-3" name="password">
+                <label for="form-label">Confirm Password:</label>
+                <input type="password" class="form-control" name="confirm_password">
+                <button type="submit" class="btn btn-primary mt-3">Register</button>
+            </div>
+        </form>
+        <form action="/login" method="post" class="bg-dark p-5 col-md-4 mt-5 container-sm">
+            <h1 class="text-warning">Login</h1>
+            {% for message in get_flashed_messages()%}
+            <p class="text-danger">{{message}}</p>
+            {% endfor %}
+            <div class="text-light">
+                <label for="form-label">Email:</label>
+                <input type="email" class="form-control mb-3" name="email">
+                <label for="form-label">Password:</label>
+                <input type="password" class="form-control" name="password">
+                <button type="submit" class="btn btn-primary mt-3">Login</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
